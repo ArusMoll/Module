@@ -1,0 +1,42 @@
+Для формальної верифікації обмежень використовується Alloy.
+
+1. Основні обмеження
+
+Кожен користувач має хоча б одну задачу.
+
+Кожна задача може входити лише до одного списку.
+
+Користувач може мати декілька списків задач.
+
+Задача не може існувати без списку.
+
+Списки прив’язані до конкретного користувача.
+
+2. Специфікація в Alloy
+module TaskManager
+
+sig User {
+    lists: set TaskList
+}
+
+sig TaskList {
+    owner: one User,
+    tasks: set Task
+}
+
+sig Task {
+    belongsTo: one TaskList
+}
+
+fact TaskConstraints {
+    -- Кожен користувач має хоча б один список
+    all u: User | some u.lists
+    
+    -- Кожен список має хоча б одну задачу
+    all l: TaskList | some l.tasks
+    
+    -- Кожна задача входить лише до одного списку
+    all t: Task | one t.belongsTo
+}
+
+run {} for 3
