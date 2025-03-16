@@ -42,7 +42,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(12, 266);
+            textBox1.Location = new Point(7, 280);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(776, 23);
             textBox1.TabIndex = 1;
@@ -51,9 +51,9 @@
             // 
             button1.Location = new Point(699, 306);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(160, 54);
             button1.TabIndex = 2;
-            button1.Text = "button1";
+            button1.Text = "Додати задачу";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
